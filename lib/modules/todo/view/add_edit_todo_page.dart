@@ -54,7 +54,7 @@ class AddEditTodoUI extends StatelessWidget {
                   minLines: 1,
                   maxLines: 3,
                   decoration: outlineBorderDecoration.copyWith(
-                    hintText: "eg: Tomorrow's Tasks",
+                    hintText: "eg: Tomorrow's Tasks List",
                     label: const Text("Title"),
                   ),
                   onChanged: (value) =>
