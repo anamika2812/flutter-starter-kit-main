@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:loggy/loggy.dart';
 
 import '../../../_utils/constants/routes.dart';
+import '../../../_utils/ui_components/extra_loggers.dart';
 import '../controller/home_bloc.dart';
 import 'widgets/todo_card.dart';
 
@@ -18,7 +20,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class HomePageUI extends StatelessWidget {
+class HomePageUI extends StatelessWidget with NetworkLoggy {
   const HomePageUI({Key? key}) : super(key: key);
 
   @override
@@ -31,7 +33,9 @@ class HomePageUI extends StatelessWidget {
           color: Colors.white,
         ),
         onPressed: () async {
+          loggy.debug('This is log with custom log level in  logger:');
           final result = await Get.toNamed(RouteNames.addEditTodoPage);
+
           if (result != null) {
             context.read<HomeBloc>().add(FetchTodos());
           }

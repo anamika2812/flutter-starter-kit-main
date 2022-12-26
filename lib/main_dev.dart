@@ -1,11 +1,14 @@
 // Dart imports:
 // Package imports:
+// ignore_for_file: avoid_redundant_argument_values
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 // Flutter imports:
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:loggy/loggy.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '_utils/configs/env_config.dart';
@@ -13,6 +16,15 @@ import '_utils/constants/app_constants.dart';
 import 'app.dart';
 
 Future<void> main() async {
+  Loggy.initLoggy(
+    logPrinter: const PrettyPrinter(
+      showColors: true,
+    ),
+    logOptions: const LogOptions(
+      LogLevel.all,
+      stackTraceLevel: LogLevel.off,
+    ),
+  );
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       // options: DefaultFirebaseOptions.currentPlatform,
