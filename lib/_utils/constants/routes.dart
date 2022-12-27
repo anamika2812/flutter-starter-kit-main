@@ -13,7 +13,7 @@ class RouteNames {
 }
 
 final publicPages = [
-  GetPage(name: '/', page: () => const LoggyCounterExample()),
+  GetPage(name: '/', page: () => const HomePage()),
   GetPage(name: RouteNames.addEditTodoPage, page: () => const AddEditTodo()),
   GetPage(
       name: RouteNames.loggyCounterExample,
